@@ -20,6 +20,8 @@
     <div class="navlinks">
       <a href="#services">Services</a>
       <a href="#fleet">Fleet</a>
+      <a href="#estimator">Fare Estimate</a>
+      <a href="#reviews">Reviews</a>
       <a href="#why">Why Gaja</a>
       <a href="#contact">Contact</a>
     </div>
@@ -119,6 +121,110 @@
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1.5" y="6" width="21" height="11" rx="1.5"/><path d="M1.5 11.5h21M7 6v11M17 6v11"/><circle cx="6" cy="19.5" r="1.6"/><circle cx="18" cy="19.5" r="1.6"/></svg>
         <h3>Mini Bus / Coach</h3>
         <p>Up to 45 seats. Staff shifts, weddings, school trips.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="estimator" id="estimator">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Know before you call</span>
+      <h2>Fare &amp; distance estimator</h2>
+      <p>Pick a common route or enter your own distance, choose a vehicle, and get an instant ballpark. Final fare is confirmed on call.</p>
+    </div>
+
+    <div class="estimator-card">
+      <div class="estimator-controls">
+        <div class="field">
+          <label for="route-select">Quick route</label>
+          <select id="route-select">
+            <option value="">— custom distance —</option>
+            <option value="12">Panjim → Calangute (12 km)</option>
+            <option value="28">Panjim → Dabolim Airport (28 km)</option>
+            <option value="40">Panjim → Mopa Airport (40 km)</option>
+            <option value="32">Margao → Calangute (32 km)</option>
+            <option value="10">Vasco → Dabolim Airport (10 km)</option>
+            <option value="18">Mapusa → Panjim (18 km)</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="distance-input">Distance (km)</label>
+          <input type="number" id="distance-input" min="1" max="500" value="12">
+        </div>
+
+        <div class="field">
+          <label for="vehicle-select">Vehicle</label>
+          <select id="vehicle-select">
+            <option value="hatchback">Hatchback / Sedan — ₹13/km</option>
+            <option value="suv">SUV — ₹17/km</option>
+            <option value="tempo">Tempo Traveller — ₹22/km</option>
+            <option value="bus">Mini Bus / Coach — ₹28/km</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="estimator-result">
+        <div class="result-row">
+          <span>Estimated fare</span>
+          <strong id="fare-output" class="mono">₹0</strong>
+        </div>
+        <div class="result-row small">
+          <span>Approx. travel time</span>
+          <span id="time-output" class="mono">—</span>
+        </div>
+        <p class="estimator-note">Estimate only — includes base fare + per-km rate. Tolls, waiting time and night charges may apply. Confirm exact fare when you call or WhatsApp.</p>
+        <a class="btn btn-primary" id="estimator-whatsapp" href="#" target="_blank" rel="noopener">Confirm this trip on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">From the road</span>
+      <h2>What riders say</h2>
+      <p>Leave a rating and a line about your trip — it'll show up below on this device.</p>
+    </div>
+
+    <div class="reviews-grid">
+      <form class="review-form" id="review-form">
+        <div class="field">
+          <label for="review-name">Your name</label>
+          <input type="text" id="review-name" maxlength="60" required placeholder="e.g. Rohan D.">
+        </div>
+        <div class="field">
+          <label>Rating</label>
+          <div class="star-input" id="star-input" role="radiogroup" aria-label="Rating">
+            <button type="button" class="star" data-value="1" aria-label="1 star">★</button>
+            <button type="button" class="star" data-value="2" aria-label="2 stars">★</button>
+            <button type="button" class="star" data-value="3" aria-label="3 stars">★</button>
+            <button type="button" class="star" data-value="4" aria-label="4 stars">★</button>
+            <button type="button" class="star" data-value="5" aria-label="5 stars">★</button>
+          </div>
+          <input type="hidden" id="review-rating" value="0">
+        </div>
+        <div class="field">
+          <label for="review-text">Your review</label>
+          <textarea id="review-text" rows="3" maxlength="280" required placeholder="How was the ride?"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Post review</button>
+        <p class="review-form-note">Saved on this device/browser only.</p>
+      </form>
+
+      <div class="review-display">
+        <div class="review-summary">
+          <span class="avg mono" id="review-avg">—</span>
+          <div>
+            <div class="avg-stars" id="review-avg-stars">☆☆☆☆☆</div>
+            <p id="review-count">No reviews yet</p>
+          </div>
+        </div>
+        <div class="review-list" id="review-list">
+          <p class="review-empty" id="review-empty">Be the first to leave a review.</p>
+        </div>
       </div>
     </div>
   </div>
