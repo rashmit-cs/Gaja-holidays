@@ -1,0 +1,182 @@
+/* ============================================
+   GAJA HOLIDAYS — styles.css
+   Palette: ink black, paper white, steel grey, signal red
+   ============================================ */
+
+:root{
+  --ink:#111114;
+  --paper:#F2F2F0;
+  --paper-2:#E7E7E4;
+  --steel:#C7CBCF;
+  --steel-dark:#9BA0A6;
+  --red:#D62828;
+  --line: rgba(17,17,20,0.14);
+  --radius: 3px;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Oswald', sans-serif;
+  font-weight:400;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+img, svg{display:block; max-width:100%;}
+a{color:inherit; text-decoration:none;}
+h1, h2, h3, .stencil{
+  font-family:'Black Ops One', 'Arial Narrow', sans-serif;
+  font-weight:400;
+  letter-spacing:0.01em;
+  text-transform:uppercase;
+}
+.mono{font-family:'JetBrains Mono', monospace;}
+.wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+}
+
+/* ===== NAV ===== */
+header{
+  position:sticky; top:0; z-index:50;
+  background:rgba(242,242,240,0.94);
+  backdrop-filter:blur(8px);
+  border-bottom:2px solid var(--ink);
+}
+nav.wrap{ display:flex; align-items:center; justify-content:space-between; height:80px; }
+.logo{ display:flex; align-items:center; gap:10px; }
+.logo img{ width:42px; height:42px; }
+.logo .word{ font-size:1.05rem; line-height:1; }
+.logo .word .red{ color:var(--red); display:block; font-size:0.65rem; letter-spacing:0.14em; margin-top:3px; }
+
+.navlinks{ display:flex; align-items:center; gap:30px; }
+.navlinks a{
+  font-family:'Oswald', sans-serif; font-size:0.92rem; font-weight:500;
+  text-transform:uppercase; letter-spacing:0.04em; opacity:0.75;
+  transition:opacity 0.15s ease;
+}
+.navlinks a:hover, .navlinks a:focus-visible{ opacity:1; }
+.navlinks a:focus-visible{ outline:2px solid var(--red); outline-offset:4px; }
+
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:12px 22px; border-radius:var(--radius);
+  font-family:'Oswald', sans-serif; font-weight:600; font-size:0.88rem;
+  text-transform:uppercase; letter-spacing:0.04em;
+  border:2px solid var(--ink); cursor:pointer;
+  transition:transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+.btn:focus-visible{ outline:2px solid var(--red); outline-offset:3px; }
+.btn-primary{ background:var(--ink); color:var(--paper); }
+.btn-primary:hover{ background:var(--red); border-color:var(--red); transform:translateY(-1px); }
+.btn-ghost{ background:transparent; color:var(--ink); }
+.btn-ghost:hover{ background:var(--ink); color:var(--paper); transform:translateY(-1px); }
+.nav-cta{ display:flex; gap:10px; }
+.nav-cta .btn{ padding:10px 18px; font-size:0.8rem; }
+@media (max-width:840px){ .navlinks{ display:none; } }
+
+/* ===== HERO ===== */
+.hero{ position:relative; overflow:hidden; padding:80px 0 90px; border-bottom:2px solid var(--ink); }
+.hero-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center; }
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:'JetBrains Mono', monospace; font-size:0.78rem; letter-spacing:0.1em;
+  text-transform:uppercase; color:var(--red); margin-bottom:20px;
+}
+.eyebrow::before{ content:""; width:26px; height:2px; background:var(--red); }
+.hero h1{ font-size:clamp(2.2rem, 5vw, 3.4rem); line-height:1.08; margin-bottom:20px; }
+.hero h1 .red{ color:var(--red); }
+.hero p.lede{ font-family:'Oswald', sans-serif; font-size:1.1rem; max-width:44ch; color:rgba(17,17,20,0.72); margin-bottom:30px; }
+.hero-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-bottom:32px; }
+.trustline{ font-size:0.88rem; color:rgba(17,17,20,0.6); border-top:1px solid var(--line); padding-top:16px; max-width:52ch; }
+.trustline b{ color:var(--ink); font-weight:600; }
+
+.badge-stage{ position:relative; display:flex; align-items:center; justify-content:center; min-height:320px; }
+.crest-frame{
+  position:relative; width:260px; padding:24px;
+  background:var(--paper-2); border:2px solid var(--ink);
+  animation:pop 0.7s cubic-bezier(.22,1,.36,1) both;
+}
+@keyframes pop{ 0%{ transform:scale(0.9); opacity:0; } 100%{ transform:scale(1); opacity:1; } }
+.crest-frame img{ width:100%; }
+.tag-93{
+  position:absolute; top:-18px; right:-22px;
+  background:var(--red); color:var(--paper);
+  padding:10px 16px; transform:rotate(8deg);
+  border:2px solid var(--ink);
+  font-family:'Black Ops One', sans-serif; font-size:1.3rem;
+  box-shadow:6px 6px 0 var(--ink);
+}
+.badge-caption{ margin-top:16px; text-align:center; font-family:'JetBrains Mono', monospace; font-size:0.72rem; color:rgba(17,17,20,0.5); letter-spacing:0.05em; }
+
+/* ===== SECTIONS shared ===== */
+section{ padding:80px 0; }
+.section-head{ max-width:60ch; margin-bottom:44px; }
+.section-head h2{ font-size:clamp(1.6rem,3vw,2.15rem); }
+.section-head p{ color:rgba(17,17,20,0.65); margin-top:14px; font-size:1.02rem; }
+
+/* SERVICES */
+.services{ background:var(--paper-2); border-bottom:2px solid var(--ink); }
+.service-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--ink); border:2px solid var(--ink); }
+.service-card{ background:var(--paper-2); padding:30px 26px; transition:background 0.2s ease; }
+.service-card:hover{ background:var(--paper); }
+.service-card .num{ font-family:'JetBrains Mono', monospace; font-size:0.78rem; color:var(--red); font-weight:700; margin-bottom:12px; display:block; }
+.service-card h3{ font-size:1.02rem; margin-bottom:10px; letter-spacing:0; }
+.service-card p{ font-size:0.92rem; color:rgba(17,17,20,0.68); }
+@media (max-width:840px){ .service-grid{ grid-template-columns:1fr; } }
+
+/* FLEET */
+.fleet-strip{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+.fleet-card{ border:2px solid var(--ink); border-radius:var(--radius); padding:24px 20px; transition:transform 0.2s ease, background 0.2s ease; }
+.fleet-card:hover{ transform:translateY(-3px); background:var(--paper-2); }
+.fleet-card .icon{ width:36px; height:36px; margin-bottom:14px; color:var(--ink); }
+.fleet-card h3{ font-size:0.95rem; margin-bottom:6px; letter-spacing:0; }
+.fleet-card p{ font-size:0.85rem; color:rgba(17,17,20,0.6); }
+@media (max-width:900px){ .fleet-strip{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:520px){ .fleet-strip{ grid-template-columns:1fr; } }
+
+/* STATS */
+.stats{ background:var(--ink); color:var(--paper); border-bottom:2px solid var(--ink); }
+.stats .eyebrow{ color:var(--red); }
+.stats h2{ color:var(--paper); }
+.stat-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:28px; }
+.stat h3{ font-family:'Black Ops One', sans-serif; font-size:2.1rem; color:var(--red); margin-bottom:6px; }
+.stat p{ font-family:'Oswald', sans-serif; font-size:0.85rem; color:rgba(242,242,240,0.75); text-transform:uppercase; letter-spacing:0.03em; }
+@media (max-width:760px){ .stat-grid{ grid-template-columns:repeat(2,1fr); row-gap:32px; } }
+
+/* TRUSTED BY */
+.trusted{ border-bottom:2px solid var(--ink); }
+.trusted .wrap{ display:flex; flex-wrap:wrap; align-items:center; gap:18px 36px; padding:32px 24px; }
+.trusted .label{ font-family:'JetBrains Mono', monospace; font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color:rgba(17,17,20,0.5); white-space:nowrap; }
+.trusted .names{ display:flex; flex-wrap:wrap; gap:24px; }
+.trusted .names span{ font-family:'Oswald', sans-serif; font-weight:600; font-size:0.98rem; letter-spacing:0.02em; opacity:0.8; }
+
+/* SERVICE AREA */
+.areas .chips{ display:flex; flex-wrap:wrap; gap:10px; margin-top:8px; }
+.chip{ padding:8px 16px; border:2px solid var(--ink); border-radius:999px; font-size:0.85rem; background:var(--paper-2); }
+
+/* CONTACT / FOOTER */
+footer{ background:var(--ink); color:var(--paper); padding:70px 0 30px; }
+.contact-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:52px; padding-bottom:44px; border-bottom:1px solid rgba(242,242,240,0.16); }
+footer h2{ color:var(--paper); font-size:clamp(1.5rem,3vw,2rem); margin-bottom:16px; }
+footer p.lede{ color:rgba(242,242,240,0.72); max-width:44ch; margin-bottom:26px; font-family:'Oswald', sans-serif; }
+.contact-actions{ display:flex; flex-wrap:wrap; gap:14px; }
+.contact-actions .btn{ border-color:var(--paper); }
+.contact-actions .btn-primary{ background:var(--red); border-color:var(--red); color:var(--paper); }
+.contact-actions .btn-primary:hover{ background:#b31f1f; }
+.contact-actions .btn-ghost{ color:var(--paper); }
+.contact-actions .btn-ghost:hover{ background:var(--paper); color:var(--ink); }
+.contact-card{ border:2px solid rgba(242,242,240,0.25); border-radius:var(--radius); padding:26px; }
+.contact-card .row{ display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid rgba(242,242,240,0.12); font-size:0.92rem; }
+.contact-card .row:last-child{ border-bottom:none; }
+.contact-card .row span:first-child{ color:rgba(242,242,240,0.55); text-transform:uppercase; font-size:0.78rem; letter-spacing:0.05em; align-self:center; }
+.contact-card .row span:last-child{ font-family:'JetBrains Mono', monospace; color:var(--paper); font-weight:600; }
+.bottom-row{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; padding-top:26px; font-size:0.8rem; color:rgba(242,242,240,0.45); }
+
+@media (max-width:900px){
+  .hero-grid{ grid-template-columns:1fr; gap:40px; }
+  .badge-stage{ min-height:220px; }
+  .contact-grid{ grid-template-columns:1fr; }
+}
