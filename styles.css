@@ -45,9 +45,9 @@ header{
   backdrop-filter:blur(8px);
   border-bottom:2px solid var(--ink);
 }
-nav.wrap{ display:flex; align-items:center; justify-content:space-between; height:80px; }
-.logo{ display:flex; align-items:center; gap:10px; }
-.logo img{ height:52px; width:auto; }
+nav.wrap{ display:flex; align-items:center; justify-content:space-between; min-height:80px; padding-top:10px; padding-bottom:10px; overflow:visible; }
+.logo{ display:flex; align-items:center; gap:10px; flex-shrink:0; }
+.logo img{ display:block; height:48px; width:auto; max-height:48px; object-fit:contain; }
 
 .navlinks{ display:flex; align-items:center; gap:30px; }
 .navlinks a{
@@ -135,6 +135,15 @@ section{ padding:80px 0; }
 @media (max-width:520px){ .fleet-strip{ grid-template-columns:1fr; } }
 
 /* ESTIMATOR */
+.fuel-strip{
+  display:flex; flex-wrap:wrap; align-items:center; gap:16px 28px;
+  border:2px solid var(--ink); background:var(--paper);
+  padding:16px 22px; margin-bottom:24px;
+}
+.fuel-item{ display:flex; align-items:center; gap:8px; }
+.fuel-label{ font-family:'JetBrains Mono', monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.05em; color:rgba(17,17,20,0.55); }
+.fuel-price{ font-weight:700; color:var(--red); font-size:0.98rem; }
+.fuel-disclaimer{ font-size:0.76rem; color:rgba(17,17,20,0.5); line-height:1.4; flex:1 1 260px; }
 .estimator{ background:var(--paper-2); border-bottom:2px solid var(--ink); }
 .estimator-card{
   display:grid; grid-template-columns:1fr 1fr; gap:0;
